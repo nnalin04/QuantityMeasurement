@@ -9,6 +9,9 @@ public class QuantityMeasurement {
     }
 
     public boolean compare(QuantityMeasurement that) {
+        if(this.unit.getClass() != that.unit.getClass()){
+            return false;
+        }
         if (this.unit.equals(that.unit)){
             return this.equals(that);
         }
@@ -17,6 +20,9 @@ public class QuantityMeasurement {
     }
 
     public double addQuantity(QuantityMeasurement that){
+        if(this.unit.getClass() != that.unit.getClass()){
+            return 0.0;
+        }
         return this.unit.convertToBaseUnit(this.value) +
                 that.unit.convertToBaseUnit(that.value);
     }

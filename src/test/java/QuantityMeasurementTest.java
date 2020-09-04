@@ -240,4 +240,44 @@ public class QuantityMeasurementTest {
         double addedQuantity = ml.addQuantity(litter);
         Assert.assertEquals(addedQuantity, 2.0, 0.0);
     }
+
+    @Test
+    public void givenKgAndGm_WhenCompared_ShouldReturnEqual() {
+        QuantityMeasurement kg = new QuantityMeasurement(Weight.KG, 1.0);
+        QuantityMeasurement gm = new QuantityMeasurement(Weight.GM, 1000.0);
+        boolean compareCheck = kg.compare(gm);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void givenTonneAndKg_WhenCompared_ShouldReturnEqual() {
+        QuantityMeasurement kg = new QuantityMeasurement(Weight.KG, 1000.0);
+        QuantityMeasurement ton = new QuantityMeasurement(Weight.TON, 1.0);
+        boolean compareCheck = kg.compare(ton);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void givenTonneAndGm_WhenAdded_ShouldReturnKg() {
+        QuantityMeasurement ton = new QuantityMeasurement(Weight.TON, 1.0);
+        QuantityMeasurement gm = new QuantityMeasurement(Weight.GM, 1000.0);
+        double addedQuantity = ton.addQuantity(gm);
+        Assert.assertEquals(addedQuantity, 1001.0, 0.0);
+    }
+
+    @Test
+    public void givenTonneAndLitter_WhenCompared_ShouldReturnNotEqual() {
+        QuantityMeasurement litter = new QuantityMeasurement(Volume.LITTER, 1.0);
+        QuantityMeasurement ton = new QuantityMeasurement(Weight.TON, 1.0);
+        boolean compareCheck = litter.compare(ton);
+        Assert.assertFalse(compareCheck);
+    }
+
+    @Test
+    public void givenMlAndGm_WhenAdded_ShouldReturn0() {
+        QuantityMeasurement ml = new QuantityMeasurement(Volume.ML, 1.0);
+        QuantityMeasurement gm = new QuantityMeasurement(Weight.GM, 1.0);
+        double addedQuantity = ml.addQuantity(gm);
+        Assert.assertEquals(addedQuantity, 0.0, 0.0);
+    }
 }

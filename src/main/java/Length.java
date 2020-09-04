@@ -1,28 +1,14 @@
-public class Length {
+public enum Length {
 
-    private final UnitLength unit;
+    FT(12.0), IN(1.0), YD(36.0), CM(2.0/5.0);
 
-    private final double value;
+    private final double baseUnitConversion;
 
-    public Length(UnitLength unit, Double value) {
-        this.unit = unit;
-        this.value = value;
+    Length(double baseUnitConversion) {
+        this.baseUnitConversion = baseUnitConversion;
     }
 
-    public boolean compare(Length that) {
-        if (this.unit.equals(that.unit)) {
-            return Double.compare(this.value, that.value) == 0;
-        } else{
-            return UnitLength.compare(this.value, this.unit, that.value, that.unit);
-        }
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Length length = (Length) o;
-        return Double.compare(length.value, value) == 0 &&
-                unit == length.unit;
+    public static boolean compare(double value1, Length unit1, double value2, Length unit2) {
+        return Double.compare(value1 * unit1.baseUnitConversion, value2 * unit2.baseUnitConversion) == 0;
     }
 }

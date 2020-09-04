@@ -1,9 +1,9 @@
 public class QuantityMeasurement {
 
     private final double value;
-    private final Length unit;
+    private final Unit unit;
 
-    public QuantityMeasurement(Length unit, Double value) {
+    public QuantityMeasurement(Unit unit, Double value) {
         this.unit = unit;
         this.value = value;
     }

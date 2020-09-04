@@ -1,10 +1,10 @@
-public enum Length implements Unit{
+public enum Volume implements Unit{
 
-    FT(12.0), IN(1.0), YD(36.0), CM(2.0/5.0);
+    GALLON(3.78), LITTER(1.0), ML(1.0/1000.0);
 
     private final double baseUnitConversion;
 
-    Length(double baseUnitConversion) {
+    Volume(double baseUnitConversion) {
         this.baseUnitConversion = baseUnitConversion;
     }
 

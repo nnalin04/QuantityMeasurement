@@ -208,4 +208,20 @@ public class QuantityMeasurementTest {
         double addedQuantity = feet1.addQuantity(cm);
         Assert.assertEquals(addedQuantity, 3.0, 0.0);
     }
+
+    @Test
+    public void given1gallonAndLitter_WhenCompared_ShouldReturnEqual() {
+        QuantityMeasurement gallon = new QuantityMeasurement(Volume.GALLON, 1.0);
+        QuantityMeasurement litter = new QuantityMeasurement(Volume.LITTER, 3.78);
+        boolean compareCheck = gallon.compare(litter);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1000mlAndLitter_WhenCompared_ShouldReturnEqual() {
+        QuantityMeasurement ml = new QuantityMeasurement(Volume.ML, 1000.0);
+        QuantityMeasurement litter = new QuantityMeasurement(Volume.LITTER, 1.0);
+        boolean compareCheck = ml.compare(litter);
+        Assert.assertTrue(compareCheck);
+    }
 }

@@ -5,37 +5,37 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenSimilarMeasurement_WhenCompared_ShouldReturnEqual() {
-        Feet feet1 = new Feet(0.0);
-        Feet feet2 = new Feet(0.0);
+        Length feet1 = new Length(Length.Unit.FT, 0.0);
+        Length feet2 = new Length(Length.Unit.FT, 0.0);
         Assert.assertEquals(feet1, feet2);
     }
 
     @Test
     public void givenSimilarObject_WhenCompared_ShouldReturnEqual() {
-        Feet feet1 = new Feet(1.0);
-        Feet feet2 = feet1;
+        Length feet1 = new Length(Length.Unit.FT, 1.0);
+        Length feet2 = feet1;
         Assert.assertEquals(feet1, feet2);
     }
 
     @Test
     public void givenNonSimilarMeasurement_WhenCompared_ShouldReturnEqual() {
-        Feet feet1 = new Feet(0.0);
-        Feet feet2 = new Feet(1.0);
+        Length feet1 = new Length(Length.Unit.FT, 0.0);
+        Length feet2 = new Length(Length.Unit.FT, 1.0);
         Assert.assertNotEquals(feet1, feet2);
     }
 
     @Test
     public void givenTwoDifferentType_WhenCompared_ShouldReturnEqual() {
-        Feet feet = new Feet(0.0);
-        Inch inch = new Inch(0.0);
+        Length feet = new Length(Length.Unit.FT, 0.0);
+        Length inch = new Length(Length.Unit.IN, 0.0);
         Assert.assertNotEquals(feet, inch);
     }
 
     @Test
     public void givenNullMeasurement_WhenCompared_ShouldReturnEqual() throws NullPointerException {
         try {
-            Feet feet1 = new Feet(null);
-            Feet feet2 = new Feet(null);
+            Length feet1 = new Length(Length.Unit.FT, null);
+            Length feet2 = new Length(Length.Unit.FT, null);
             Assert.assertNotEquals(feet1, feet2);
         }catch (NullPointerException e){
             e.printStackTrace();
@@ -44,37 +44,37 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenSimilarMeasurementInInch_WhenCompared_ShouldReturnEqual() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = new Inch(0.0);
+        Length inch1 = new Length(Length.Unit.IN, 0.0);
+        Length inch2 = new Length(Length.Unit.IN, 0.0);
         Assert.assertEquals(inch1, inch2);
     }
 
     @Test
     public void givenSimilarInchObject_WhenCompared_ShouldReturnEqual() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = inch1;
+        Length inch1 = new Length(Length.Unit.IN, 0.0);
+        Length inch2 = inch1;
         Assert.assertEquals(inch1, inch2);
     }
 
     @Test
     public void givenNonSimilarMeasurementInInch_WhenCompared_ShouldReturnEqual() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = new Inch(1.0);
+        Length inch1 = new Length(Length.Unit.IN, 0.0);
+        Length inch2 = new Length(Length.Unit.IN, 1.0);
         Assert.assertNotEquals(inch1, inch2);
     }
 
     @Test
     public void givenTwoDifferentTypeObject_WhenCompared_ShouldReturnEqual() {
-        Feet feet = new Feet(0.0);
-        Inch inch = new Inch(0.0);
+        Length feet = new Length(Length.Unit.FT, 0.0);
+        Length inch = new Length(Length.Unit.IN, 0.0);
         Assert.assertNotEquals(feet, inch);
     }
 
     @Test
     public void givenNullMeasurementInInch_WhenCompared_ShouldReturnEqual() throws NullPointerException {
         try {
-            Inch inch1 = new Inch(null);
-            Inch inch2 = new Inch(null);
+            Length inch1 = new Length(Length.Unit.IN, null);
+            Length inch2 = new Length(Length.Unit.IN, null);
             Assert.assertNotEquals(inch1, inch2);
         }catch (NullPointerException e){
             e.printStackTrace();

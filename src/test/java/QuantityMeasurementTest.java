@@ -176,4 +176,36 @@ public class QuantityMeasurementTest {
         boolean compareCheck = inch.compare(cm);
         Assert.assertTrue(compareCheck);
     }
+
+    @Test
+    public void given2inchAnd2inch_WhenAdded_ShouldReturn4inch() {
+        QuantityMeasurement inch1 = new QuantityMeasurement(Length.IN, 2.0);
+        QuantityMeasurement inch2 = new QuantityMeasurement(Length.IN, 2.0);
+        double addedQuantity = inch1.addQuantity(inch2);
+        Assert.assertEquals(addedQuantity, 4.0, 0.0);
+    }
+
+    @Test
+    public void given1feetAnd2inch_WhenAdded_ShouldReturn14inch() {
+        QuantityMeasurement feet1 = new QuantityMeasurement(Length.FT, 1.0);
+        QuantityMeasurement inch2 = new QuantityMeasurement(Length.IN, 2.0);
+        double addedQuantity = feet1.addQuantity(inch2);
+        Assert.assertEquals(addedQuantity, 14.0, 0.0);
+    }
+
+    @Test
+    public void given1feetAnd1feet_WhenAdded_ShouldReturn24inch() {
+        QuantityMeasurement feet1 = new QuantityMeasurement(Length.FT, 1.0);
+        QuantityMeasurement feet2 = new QuantityMeasurement(Length.FT, 1.0);
+        double addedQuantity = feet1.addQuantity(feet2);
+        Assert.assertEquals(addedQuantity, 24.0, 0.0);
+    }
+
+    @Test
+    public void givenInchAndCm_WhenAdded_ShouldReturn3inch() {
+        QuantityMeasurement feet1 = new QuantityMeasurement(Length.IN, 2.0);
+        QuantityMeasurement cm = new QuantityMeasurement(Length.CM, 2.5);
+        double addedQuantity = feet1.addQuantity(cm);
+        Assert.assertEquals(addedQuantity, 3.0, 0.0);
+    }
 }

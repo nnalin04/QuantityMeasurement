@@ -9,11 +9,16 @@ public class QuantityMeasurement {
     }
 
     public boolean compare(QuantityMeasurement that) {
-        if (this.unit.equals(that.unit)) {
-            return Double.compare(this.value, that.value) == 0;
-        } else{
-            return Length.compare(this.value, this.unit, that.value, that.unit);
+        if (this.unit.equals(that.unit)){
+            return this.equals(that);
         }
+        return Double.compare(this.unit.convertToBaseUnit(this.value),
+                              that.unit.convertToBaseUnit(that.value)) == 0;
+    }
+
+    public double addQuantity(QuantityMeasurement that){
+        return this.unit.convertToBaseUnit(this.value) +
+                that.unit.convertToBaseUnit(that.value);
     }
 
     @Override

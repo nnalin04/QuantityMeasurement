@@ -8,7 +8,7 @@ public enum Length {
         this.baseUnitConversion = baseUnitConversion;
     }
 
-    public static boolean compare(double value1, Length unit1, double value2, Length unit2) {
-        return Double.compare(value1 * unit1.baseUnitConversion, value2 * unit2.baseUnitConversion) == 0;
+    public double convertToBaseUnit(double value) {
+        return value * baseUnitConversion;
     }
 }

@@ -280,4 +280,12 @@ public class QuantityMeasurementTest {
         double addedQuantity = ml.addQuantity(gm);
         Assert.assertEquals(addedQuantity, 0.0, 0.0);
     }
+
+    @Test
+    public void givenFahrenheitAndCelsius_WhenCompared_ShouldReturnNotEqual() {
+        QuantityMeasurement fahrenheit = new QuantityMeasurement(Temp.F, 212.0);
+        QuantityMeasurement celsius = new QuantityMeasurement(Temp.C, 100.0);
+        boolean compareCheck = fahrenheit.compare(celsius);
+        Assert.assertFalse(compareCheck);
+    }
 }

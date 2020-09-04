@@ -11,4 +11,8 @@ public enum Length implements Unit{
     public double convertToBaseUnit(double value) {
         return value * baseUnitConversion;
     }
+
+    public boolean supportAddition(){
+        return true;
+    }
 }

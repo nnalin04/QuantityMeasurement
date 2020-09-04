@@ -20,7 +20,8 @@ public class QuantityMeasurement {
     }
 
     public double addQuantity(QuantityMeasurement that){
-        if(this.unit.getClass() != that.unit.getClass()){
+        if(this.unit.getClass() != that.unit.getClass()
+            || !this.unit.supportAddition() || !that.unit.supportAddition()){
             return 0.0;
         }
         return this.unit.convertToBaseUnit(this.value) +

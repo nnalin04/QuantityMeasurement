@@ -11,4 +11,8 @@ public enum Weight implements Unit{
     public double convertToBaseUnit(double value) {
         return value * baseUnitConversion;
     }
+
+    public boolean supportAddition(){
+        return true;
+    }
 }

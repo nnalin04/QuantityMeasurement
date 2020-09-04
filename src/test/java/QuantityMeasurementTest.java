@@ -224,4 +224,20 @@ public class QuantityMeasurementTest {
         boolean compareCheck = ml.compare(litter);
         Assert.assertTrue(compareCheck);
     }
+
+    @Test
+    public void givenGallonAndLitter_WhenAdded_ShouldReturnLitter() {
+        QuantityMeasurement gallon = new QuantityMeasurement(Volume.GALLON, 1.0);
+        QuantityMeasurement litter = new QuantityMeasurement(Volume.LITTER, 3.78);
+        double addedQuantity = gallon.addQuantity(litter);
+        Assert.assertEquals(addedQuantity, 7.56, 0.0);
+    }
+
+    @Test
+    public void givenMlAndLitter_WhenAdded_ShouldReturnLitter() {
+        QuantityMeasurement ml = new QuantityMeasurement(Volume.ML, 1000.0);
+        QuantityMeasurement litter = new QuantityMeasurement(Volume.LITTER, 1.0);
+        double addedQuantity = ml.addQuantity(litter);
+        Assert.assertEquals(addedQuantity, 2.0, 0.0);
+    }
 }

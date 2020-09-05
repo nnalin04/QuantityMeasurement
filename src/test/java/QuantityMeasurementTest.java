@@ -36,7 +36,8 @@ public class QuantityMeasurementTest {
         try {
             QuantityMeasurement feet1 = new QuantityMeasurement(Length.FT, null);
             QuantityMeasurement feet2 = new QuantityMeasurement(Length.FT, null);
-            Assert.assertNotEquals(feet1, feet2);
+            boolean compareCheck = feet1.compare(feet2);
+            Assert.assertTrue(compareCheck);
         }catch (NullPointerException e){
             e.printStackTrace();
         }
@@ -72,13 +73,9 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenNullMeasurementInInch_WhenCompared_ShouldReturnEqual() throws NullPointerException {
-        try {
-            QuantityMeasurement inch1 = new QuantityMeasurement(Length.IN, null);
-            QuantityMeasurement inch2 = new QuantityMeasurement(Length.IN, null);
+            QuantityMeasurement inch1 = null;
+            QuantityMeasurement inch2 = new QuantityMeasurement(Length.IN, 0.0);
             Assert.assertNotEquals(inch1, inch2);
-        }catch (NullPointerException e){
-            e.printStackTrace();
-        }
     }
 
     @Test
